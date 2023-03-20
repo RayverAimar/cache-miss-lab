@@ -11,6 +11,7 @@ using namespace std;
 #define init_float_matrix(u) std::vector<std::vector<float>>(u, std::vector<float>(u,0.f));
 #define init_double_matrix(u) std::vector<std::vector<double>>(u, std::vector<double>(u,0));
 #define LIMIT 10000
+#define BLOCK_SIZE 5
 
 typedef std::vector<std::vector<int>> INT_MATRIX;
 typedef std::vector<std::vector<float>> FLOAT_MATRIX;
