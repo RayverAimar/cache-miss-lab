@@ -34,5 +34,5 @@ INT_MATRIX blocks_multiplication(INT_MATRIX m1, INT_MATRIX m2)
 
 int main()
 {
-    multiply_two_matrices(blocks_multiplication, 8);
+    multiply_two_matrices(blocks_multiplication, 1024);
 }
