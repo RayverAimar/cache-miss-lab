@@ -19,7 +19,9 @@ INT_MATRIX classic_multiplication(INT_MATRIX m1, INT_MATRIX m2)
     return ans;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
-    multiply_two_matrices(classic_multiplication, 1024);
+    if (argc != 2) return -1;
+    int _size = atoi(argv[1]);
+    take_time(multiply_two_matrices, classic_multiplication, _size);
 }

@@ -2,6 +2,7 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <chrono>
 
 using namespace std;
 
@@ -16,6 +17,8 @@ using namespace std;
 typedef std::vector<std::vector<int>> INT_MATRIX;
 typedef std::vector<std::vector<float>> FLOAT_MATRIX;
 typedef std::vector<std::vector<double>> DOUBLE_MATRIX;
+typedef std::chrono::high_resolution_clock Time;
+typedef std::chrono::duration<float> fsec;
 
 INT_MATRIX generate_random_matrix(unsigned int _size)
 {
@@ -37,4 +40,13 @@ void multiply_two_matrices(INT_MATRIX (*mult)(INT_MATRIX, INT_MATRIX), unsigned 
 {
     INT_MATRIX m1 = generate_random_matrix(_size), m2 = generate_random_matrix(_size);
     INT_MATRIX m3 = mult(m1, m2);
+}
+
+void take_time(void (*func)(INT_MATRIX(*)(INT_MATRIX, INT_MATRIX), unsigned int ), INT_MATRIX (*mult)(INT_MATRIX, INT_MATRIX), unsigned int _size)
+{
+    auto start = Time::now();
+    func(mult, _size);
+    auto end = Time::now();
+    fsec fs = end - start;
+    std::cout << "Elapsed time: " << fs.count() << "s" << std::endl;
 }
